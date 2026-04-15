@@ -77,8 +77,8 @@ int eval(const std::string& pref) {
   TStack<int, 100> stack;
 
     std::string currentNumber;
-    for (size_t i = 0; i <= post.length(); ++i) {
-        char c = (i < post.length()) ? post[i] : ' ';
+    for (size_t i = 0; i <= pref.length(); ++i) {
+        char c = (i < pref.length()) ? pref[i] : ' ';
 
         if (std::isdigit(c)) {
             currentNumber += c;
