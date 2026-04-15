@@ -23,7 +23,7 @@ int getPrecedence(char op) {
 }
 
 std::string infx2pstfx(const std::string& inf) {
- TStack<char, 100> stack;
+    TStack<char, 100> stack;
     std::string result;
 
     for (size_t i = 0; i < inf.length(); ++i) {
@@ -74,7 +74,7 @@ std::string infx2pstfx(const std::string& inf) {
 }
 
 int eval(const std::string& pref) {
-  TStack<int, 100> stack;
+    TStack<int, 100> stack;
 
     std::string currentNumber;
     for (size_t i = 0; i <= pref.length(); ++i) {
