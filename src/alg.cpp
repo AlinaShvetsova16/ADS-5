@@ -21,7 +21,7 @@ int getPrecedence(char op) {
 }
 
 std::string infx2pstfx(const std::string& inf) {
-    TStack<char, 100> stack;
+  TStack<char, 100> stack;
   std::string result;
 
   for (size_t i = 0; i < inf.length(); ++i) {
@@ -71,8 +71,8 @@ std::string infx2pstfx(const std::string& inf) {
   return result;
 }
 
-int eval(const std::string& pref) {
-    TStack<int, 100> stack;
+int eval(const std::string& post) {
+  TStack<int, 100> stack;
 
   std::string currentNumber;
   for (size_t i = 0; i <= post.length(); ++i) {
@@ -92,6 +92,7 @@ int eval(const std::string& pref) {
         throw std::runtime_error("Invalid postfix expression");
       }
       int a = stack.pop();
+
       int result;
       switch (c) {
         case '+':
@@ -112,15 +113,19 @@ int eval(const std::string& pref) {
         default:
           throw std::runtime_error("Unknown operator");
       }
+
       stack.push(result);
     }
   }
+
   if (stack.isEmpty()) {
     throw std::runtime_error("Empty expression");
   }
+
   int finalResult = stack.pop();
   if (!stack.isEmpty()) {
     throw std::runtime_error("Invalid postfix expression");
   }
+
   return finalResult;
 }
