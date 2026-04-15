@@ -4,9 +4,9 @@
 
 template<typename T, int size>
 class TStack {
-  private:
-    T data[Capacity];
-    size_t topIndex;
+private:
+    T data[size];
+    int topIndex;
 
 public:
     TStack() : topIndex(0) {}
@@ -16,7 +16,7 @@ public:
     }
 
     bool isFull() const {
-        return topIndex >= Capacity;
+        return topIndex >= size;
     }
 
     void push(const T& value) {
