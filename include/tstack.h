@@ -4,39 +4,40 @@
 
 template<typename T, int size>
 class TStack {
-    private:
-        T data[size];
-        int topIndex;
+ private:
+  static constexpr int kStackSize = size;
+  T data[kStackSize];
+  int topIndex;
 
-    public:
-        TStack() : topIndex(0) {}
+ public:
+  TStack() : topIndex(0) {}
 
-        bool isEmpty() const {
-            return topIndex == 0;
-        }
+  bool isEmpty() const {
+    return topIndex == 0;
+  }
 
-        bool isFull() const {
-            return topIndex >= size;
-        }
+  bool isFull() const {
+    return topIndex >= kStackSize;
+  }
 
-        void push(const T& value) {
-            if (!isFull()) {
-                data[topIndex++] = value;
-            }
-        }
+  void push(const T& value) {
+    if (!isFull()) {
+      data[topIndex++] = value;
+    }
+  }
 
-        T pop() {
-            if (!isEmpty()) {
-                return data[--topIndex];
-            }
-            throw std::runtime_error("Stack is empty");
-        }
+  T pop() {
+    if (!isEmpty()) {
+      return data[--topIndex];
+    }
+    throw std::runtime_error("Stack is empty");
+  }
 
-        const T& peek() const {
-            if (!isEmpty()) {
-                return data[topIndex - 1];
-            }
-            throw std::runtime_error("Stack is empty");
-        }
+  const T& peek() const {
+    if (!isEmpty()) {
+      return data[topIndex - 1];
+    }
+    throw std::runtime_error("Stack is empty");
+  }
 };
 #endif  // INCLUDE_TSTACK_H_
